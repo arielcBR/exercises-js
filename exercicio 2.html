@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2 </title>
+</head>
+<body>
+    <script>
+        /*
+        2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+        */
+       
+        const text = prompt("Please, insert a string to be splited");
+        const start = Number.parseInt(prompt("Where should I start? "));
+        const end =Number.parseInt(prompt("Where should I finish?"));
+
+        const cutString = (text, beginning, end)=>
+        {
+            if(validateString(text, beginning,end))
+            {
+                if (beginning > end || beginning == end)
+                {
+                    console.log("The value(s) inserted are invalid.");
+                }
+
+                else if(beginning < 0 || end < 1)
+                {
+                    console.log("The value(s) cannot be negative.");
+                }
+
+                else
+                {
+                    let str = text.slice(beginning, end);
+                    console.log(str);
+                }
+            }
+            else{
+                console.log("The value(s) inserted are not numbers");
+            }
+        }
+        
+        const validateString = (text, beginning, end) =>
+        {
+            if(text.length <= 0)
+            {
+                console.log("It's empty, please insert something to split");
+                return false;
+            }
+
+            else if (text.length <= (end - beginning))
+            {
+                console.log("The string is too short to split.");
+                return false;
+            }
+
+            else
+                return true;
+        }
+        cutString(text, start, end);
+
+
+    </script>
+</body>
+</html>
